@@ -2,6 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
 import css from './style.css';
+import path from 'path'
+
+const ReactMarkdown = require('react-markdown') 
 
 function MarkdownEditor({ file, write }) {
   console.log(file, write);
@@ -38,6 +41,10 @@ function MarkdownEditor({ file, write }) {
       <textarea name="text" value={text} rows="30" cols="60" onChange={handleTextChange}></textarea>
       <button type="submit"> Save </button>
     </form>
+    <div className={css.preview}>
+      <div className={css.title}>{path.basename(file.name)}</div>
+      <div className={css.content}><ReactMarkdown source={text} /></div>
+    </div>
     </div>
   );
 }

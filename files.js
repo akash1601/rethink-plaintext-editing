@@ -19,7 +19,9 @@ class FileHandler {
     
     this.text.fancy = `# Some Markdown that could be rendered and HTML
 
-    The *quick* brown fox, jumped **over** the lazy [dog](https://en.wikipedia.org/wiki/Dog).`
+     The *quick* brown fox, jumped **over** the lazy [dog]
+    
+    (https://en.wikipedia.org/wiki/Dog).`
     this.text.javascript = `import { useState, useRef, useEffect } from 'react';
 
     // From: https://blog.castiel.me/posts/2019-02-19-react-hooks-get-current-state-back-to-the-future/

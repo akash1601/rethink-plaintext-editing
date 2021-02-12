@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-
+import path from 'path';
 import css from './style.css';
 
 function PlaintextEditor({ file, write }) {
@@ -39,6 +39,10 @@ function PlaintextEditor({ file, write }) {
       <textarea name="text" value={text} rows="30" cols="60" onChange={handleTextChange}></textarea>
       <button type="submit"> Save </button>
     </form>
+    <div className={css.preview}>
+    <div className={css.title}>{path.basename(file.name)}</div>
+    <div className={css.content}>{text}</div>
+    </div>
     </div>
   );
 }
