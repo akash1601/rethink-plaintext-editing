@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import path from 'path';
 import classNames from 'classnames';
 
-import { listFiles } from '../files';
+import { listFiles, newUpdateFile } from '../files';
 
 // Used below, these need to be registered
 import MarkdownEditor from '../MarkdownEditor';
@@ -99,8 +99,8 @@ Previewer.propTypes = {
 
 // Uncomment keys to register editors for media types
 const REGISTERED_EDITORS = {
-  // "text/plain": PlaintextEditor,
-  // "text/markdown": MarkdownEditor,
+  "text/plain": PlaintextEditor,
+  //"text/markdown": MarkdownEditor,
 };
 
 function PlaintextFilesChallenge() {
@@ -116,6 +116,17 @@ function PlaintextFilesChallenge() {
     console.log('Writing soon... ', file.name);
 
     // TODO: Write the file to the `files` array
+
+    let newFiles = files.map(newFile => {
+      if (newFile.name == file.name) {
+        newUpdateFile(path.basename(file.name), file)
+        return file
+      } else{
+        return newFile
+      }
+    });
+    setFiles(newFiles)
+    
   };
 
   const Editor = activeFile ? REGISTERED_EDITORS[activeFile.type] : null;
