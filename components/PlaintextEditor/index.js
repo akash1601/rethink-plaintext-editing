@@ -17,7 +17,7 @@ function PlaintextEditor({ file, write }) {
 
   const handleTextChange = (e) => {
     console.log("file updated")
-    setValue(e.target.value)
+    setText(e.target.value)
   }
 
   const UpdateFile = (e) => {
